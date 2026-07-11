@@ -18,6 +18,7 @@ from mediapipe.tasks.python.vision.core.vision_task_running_mode import VisionTa
 MODEL_PATH = "models/gesture_recognizer.task"
 CAMERA_INDEX = 0
 MIN_GESTURE_CONFIDENCE = 0.5
+MAX_HANDS = 6
 
 GESTURE_LABELS = {
     "Closed_Fist": "Fist",
@@ -103,7 +104,7 @@ def main():
     options = vision.GestureRecognizerOptions(
         base_options=base_options,
         running_mode=VisionTaskRunningMode.VIDEO,
-        num_hands=2,
+        num_hands=MAX_HANDS,
         min_hand_detection_confidence=0.5,
         min_tracking_confidence=0.5,
     )
